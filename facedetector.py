@@ -2,12 +2,20 @@ __author__ = 'Brian Diaz'
 import cv2
 from face import Face
 
-cascade_path = "haarcascades/xml/haarcascade_frontalface_alt.xml"
+xml_path = "haarcascades/xml/"
+
+cascade_path = {
+	"alt": xml_path + "haarcascade_frontalface_alt.xml",
+	"alt2": xml_path + "haarcascade_frontalface_alt2.xml",
+	"alt3": xml_path + "haarcascade_frontalface_alt_tree.xml",
+	"default": xml_path + "haarcascade_frontalface_default.xml"
+}
 
 class FaceDetector:
 
-	def __init__(self, image, scale_factor, minimum_neighbors, minimum_size, flags):
-		self.face_cascade = cv2.CascadeClassifier(cascade_path)
+	def __init__(self, image, cascade_trainer, scale_factor, minimum_neighbors, minimum_size, flags):
+		self.cascade_trainer = cascade_path[cascade_trainer]
+		self.face_cascade = cv2.CascadeClassifier(self.cascade_trainer)
 		self.image = image
 		self.scale_factor = scale_factor
 		self.minimum_neighbors = minimum_neighbors
