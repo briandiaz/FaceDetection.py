@@ -1,2 +1,2 @@
-# FaceRecognition.py
-Getting started with Face Recognition using OpenCV and Python.
+# FaceDetection.py
+Getting started with Face Detection using OpenCV, Python and Haar-Cascade.
