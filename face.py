@@ -12,13 +12,16 @@ class Face:
 		self.height = height
 		self.rgb_color = rgb_color
 
-	def draw_rectangle(self, thickness):
+	def draw(self, thickness):
 		cv2.rectangle(self.image, (self.x, self.y), (self.__top_left_corner(), self.__bottom_right_corner()), self.rgb_color, thickness)
 
+	def data(self):
+		return self.image[self.y:self.y+self.height, self.x:self.x+self.width]
+
 	def show(self):
-		cv2.imshow(str(self.x)+str(self.y)+" face", self.image[self.y:self.height, self.x:self.width])
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+		cv2.imshow(str(self.x)+str(self.y)+" face", self.data())
+		cv2.waitKey(0)
+		cv2.destroyAllWindows()
 		
 	def __top_left_corner(self):
 		return self.x + self.width
