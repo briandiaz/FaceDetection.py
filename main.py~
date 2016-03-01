@@ -13,7 +13,7 @@ time.sleep(5) # Wait Camera to respond
 
 while True: 
 	ret, image = video_capture.read()
-	detector = Detector(image, 1.1, 5, (30, 30), cv2.DIST_L2, haarcascade_classifier)
+	detector = Detector(image, 1.1, 5, (30, 30), cv2.CV_HAAR_SCALE_IMAGE, haarcascade_classifier)
 	detector.detect()
 	cv2.imshow("Video", image)
 
