@@ -36,7 +36,7 @@ class Detector:
 				for(eye_x, eye_y, eye_w, eye_h) in detected_eyes:
 					eye = Eye(self.image, face.x + eye_x, face.y + eye_y, eye_w, eye_h, rgb_blue)
 					eye.draw(2)
-			        eyes.append(eye)
+					eyes.append(eye)
 
 			detected_smile = self.__detect_smile(face.data())
 			if len(detected_smile) > 0:
